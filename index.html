@@ -17,7 +17,28 @@
     <meta property="og:image" content="assets/full/tingting-18.jpg" />
     <title>tingting | A Private Photographic Exhibition</title>
     <link rel="icon" href="data:," />
-    <link rel="preload" href="assets/thumbs/tingting-18.webp" as="image" type="image/webp" />
+    <link
+      rel="preload"
+      href="assets/thumbs/tingting-18.webp?v=lite2"
+      as="image"
+      type="image/webp"
+    />
+    <link
+      rel="preload"
+      href="assets/thumbs-mobile/tingting-01.webp?v=lite2"
+      as="image"
+      type="image/webp"
+      media="(max-width: 640px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="assets/thumbs/tingting-01.webp?v=lite2"
+      as="image"
+      type="image/webp"
+      media="(min-width: 641px)"
+      fetchpriority="high"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
@@ -116,8 +137,8 @@
     </button>
     <audio
       id="backgroundMusic"
-      src="assets/audio/lakeside-moonlight.ogg"
-      preload="metadata"
+      src="assets/audio/lakeside-moonlight.ogg?v=lite2"
+      preload="none"
       loop
     ></audio>
 

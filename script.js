@@ -312,7 +312,8 @@ const photographs = [
 ].map((photo, index) => ({
   ...photo,
   index,
-  thumb: `assets/thumbs/${photo.file}.webp`,
+  thumb: `assets/thumbs/${photo.file}.webp?v=lite2`,
+  mobileThumb: `assets/thumbs-mobile/${photo.file}.webp?v=lite2`,
   full: `assets/full/${photo.file}.jpg`,
 }));
 
@@ -370,8 +371,16 @@ function createPhoto(photo) {
   image.alt = photo.alt[currentLanguage];
   image.width = photo.width;
   image.height = photo.height;
-  image.loading = photo.index < 2 ? "eager" : "lazy";
-  image.decoding = "async";
+  image.loading = photo.index === 0 ? "eager" : "lazy";
+  image.decoding = photo.index === 0 ? "sync" : "async";
+  image.fetchPriority = photo.index === 0 ? "high" : "low";
+
+  const mobileSource = document.createElement("source");
+  mobileSource.media = "(max-width: 640px)";
+  mobileSource.srcset = photo.mobileThumb;
+
+  const picture = document.createElement("picture");
+  picture.append(mobileSource, image);
 
   const error = document.createElement("span");
   error.className = "photo-error";
@@ -381,7 +390,7 @@ function createPhoto(photo) {
       : "This photograph could not be loaded.";
 
   image.addEventListener("error", () => figure.classList.add("has-error"));
-  button.append(image, error);
+  button.append(picture, error);
   figure.append(button);
   return figure;
 }

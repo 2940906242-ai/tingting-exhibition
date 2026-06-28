@@ -107,7 +107,7 @@ button {
 }
 
 .intro-image {
-  background: url("assets/thumbs/tingting-18.webp") center 43% / cover no-repeat;
+  background: url("assets/thumbs/tingting-18.webp?v=lite2") center 43% / cover no-repeat;
   filter: blur(8px) saturate(0.66) contrast(0.86);
   transform: scale(1.08);
   animation: intro-breathe 16s ease-in-out infinite alternate;
@@ -426,6 +426,10 @@ main {
   transition:
     transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
     filter 1.2s;
+}
+
+.photo picture {
+  display: block;
 }
 
 .photo-button:hover img {
