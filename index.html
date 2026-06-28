@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f1eee8" />
+    <meta
+      name="description"
+      content="Serena, a private online photographic exhibition in five quiet movements."
+    />
+    <meta property="og:title" content="Serena | A Private Photographic Exhibition" />
+    <meta
+      property="og:description"
+      content="Twenty photographs, gathered in five quiet movements."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/full/serena-18.jpg" />
+    <title>Serena | A Private Photographic Exhibition</title>
+    <link rel="preload" href="assets/thumbs/serena-18.webp" as="image" type="image/webp" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="is-intro">
+    <div class="paper-grain" aria-hidden="true"></div>
+
+    <section class="intro" id="intro" aria-label="Exhibition entrance">
+      <div class="intro-image" aria-hidden="true"></div>
+      <div class="intro-veil" aria-hidden="true"></div>
+      <div class="intro-content">
+        <p class="intro-kicker">A private photographic exhibition</p>
+        <h1>Serena</h1>
+        <p class="intro-note">Twenty photographs in five quiet movements.</p>
+        <button class="enter-button" id="enterButton" type="button">
+          Enter the exhibition
+        </button>
+      </div>
+    </section>
+
+    <header class="site-header">
+      <a class="wordmark" href="#opening" aria-label="Serena exhibition home">Serena</a>
+      <nav aria-label="Exhibition navigation">
+        <a href="#chapters">Chapters</a>
+        <a href="#gallery">Photographs</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="opening reveal" id="opening">
+        <p class="opening-label">Private archive</p>
+        <h2>Five ways of holding a moment.</h2>
+        <p>
+          A small collection shaped by cool light, open air, passing rooms, and the
+          gentle distance between looking and remembering.
+        </p>
+      </section>
+
+      <nav class="chapter-index reveal" id="chapters" aria-label="Photo chapters">
+        <a href="#aisles">Aisles of Small Wonder</a>
+        <a href="#blue-light">Blue Light, Quiet Mood</a>
+        <a href="#green">Where the Green Begins</a>
+        <a href="#sea-stone">Sea, Stone, and Distance</a>
+        <a href="#flowers">Flowers Keep the Reflection</a>
+      </nav>
+
+      <div id="gallery" aria-live="polite">
+        <div class="gallery-loading" id="galleryLoading" role="status">
+          <span></span>
+          <span></span>
+          <span></span>
+          <p>Preparing the photographs</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Serena</p>
+      <p>A private collection, kept in light.</p>
+    </footer>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Full screen photograph">
+      <div class="lightbox-backdrop" data-close-lightbox></div>
+      <figure class="lightbox-stage">
+        <img id="lightboxImage" alt="" />
+        <figcaption>
+          <span id="lightboxChapter"></span>
+          <span id="lightboxCount"></span>
+        </figcaption>
+      </figure>
+      <div class="lightbox-actions">
+        <button type="button" id="previousButton">Previous</button>
+        <button type="button" id="nextButton">Next</button>
+        <button type="button" id="closeButton">Close</button>
+      </div>
+    </dialog>
+
+    <noscript>
+      <p class="noscript-note">
+        JavaScript is required for the gallery and full screen viewer.
+      </p>
+    </noscript>
+  </body>
+</html>
