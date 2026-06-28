@@ -43,8 +43,6 @@
     <script src="script.js" defer></script>
   </head>
   <body class="is-intro">
-    <div class="paper-grain" aria-hidden="true"></div>
-
     <section class="intro" id="intro" aria-label="Exhibition entrance">
       <div class="intro-image" aria-hidden="true"></div>
       <div class="intro-veil" aria-hidden="true"></div>
@@ -137,10 +135,12 @@
     </button>
     <audio
       id="backgroundMusic"
-      src="assets/audio/lakeside-moonlight.ogg?v=lite2"
       preload="none"
       loop
-    ></audio>
+    >
+      <source src="assets/audio/lakeside-moonlight.m4a?v=lite3" type="audio/mp4" />
+      <source src="assets/audio/lakeside-moonlight.ogg?v=lite3" type="audio/ogg" />
+    </audio>
 
     <noscript>
       <p class="noscript-note">
