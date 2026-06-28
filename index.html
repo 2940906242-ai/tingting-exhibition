@@ -6,18 +6,18 @@
     <meta name="theme-color" content="#f1eee8" />
     <meta
       name="description"
-      content="Serena, a private online photographic exhibition in five quiet movements."
+      content="tingting, a private online photographic exhibition in five quiet movements."
     />
-    <meta property="og:title" content="Serena | A Private Photographic Exhibition" />
+    <meta property="og:title" content="tingting | A Private Photographic Exhibition" />
     <meta
       property="og:description"
       content="Twenty photographs, gathered in five quiet movements."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/full/serena-18.jpg" />
-    <title>Serena | A Private Photographic Exhibition</title>
+    <meta property="og:image" content="assets/full/tingting-18.jpg" />
+    <title>tingting | A Private Photographic Exhibition</title>
     <link rel="icon" href="data:," />
-    <link rel="preload" href="assets/thumbs/serena-18.webp" as="image" type="image/webp" />
+    <link rel="preload" href="assets/thumbs/tingting-18.webp" as="image" type="image/webp" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
@@ -28,39 +28,51 @@
       <div class="intro-image" aria-hidden="true"></div>
       <div class="intro-veil" aria-hidden="true"></div>
       <div class="intro-content">
-        <p class="intro-kicker">A private photographic exhibition</p>
-        <h1>Serena</h1>
-        <p class="intro-note">Twenty photographs in five quiet movements.</p>
+        <p class="intro-kicker" data-i18n="introKicker">A private photographic exhibition</p>
+        <h1>tingting</h1>
+        <p class="intro-note" data-i18n="introNote">
+          Twenty photographs in five quiet movements.
+        </p>
         <button class="enter-button" id="enterButton" type="button">
-          Enter the exhibition
+          <span data-i18n="enter">Enter the exhibition</span>
         </button>
       </div>
     </section>
 
     <header class="site-header">
-      <a class="wordmark" href="#opening" aria-label="Serena exhibition home">Serena</a>
-      <nav aria-label="Exhibition navigation">
-        <a href="#chapters">Chapters</a>
-        <a href="#gallery">Photographs</a>
-      </nav>
+      <a class="wordmark" href="#opening" aria-label="tingting exhibition home">tingting</a>
+      <div class="header-actions">
+        <nav aria-label="Exhibition navigation">
+          <a href="#chapters" data-i18n="navChapters">Chapters</a>
+          <a href="#gallery" data-i18n="navPhotos">Photographs</a>
+        </nav>
+        <button
+          class="language-toggle"
+          id="languageToggle"
+          type="button"
+          aria-label="Switch to Chinese"
+        >
+          中
+        </button>
+      </div>
     </header>
 
     <main>
       <section class="opening reveal" id="opening">
-        <p class="opening-label">Private archive</p>
-        <h2>Five ways of holding a moment.</h2>
-        <p>
+        <p class="opening-label" data-i18n="archive">Private archive</p>
+        <h2 data-i18n="openingTitle">Five ways of holding a moment.</h2>
+        <p data-i18n="openingBody">
           A small collection shaped by cool light, open air, passing rooms, and the
           gentle distance between looking and remembering.
         </p>
       </section>
 
       <nav class="chapter-index reveal" id="chapters" aria-label="Photo chapters">
-        <a href="#aisles">Aisles of Small Wonder</a>
-        <a href="#blue-light">Blue Light, Quiet Mood</a>
-        <a href="#green">Where the Green Begins</a>
-        <a href="#sea-stone">Sea, Stone, and Distance</a>
-        <a href="#flowers">Flowers Keep the Reflection</a>
+        <a href="#aisles" data-chapter-link="aisles">Aisles of Small Wonder</a>
+        <a href="#blue-light" data-chapter-link="blue-light">Blue Light, Quiet Mood</a>
+        <a href="#green" data-chapter-link="green">Where the Green Begins</a>
+        <a href="#sea-stone" data-chapter-link="sea-stone">Sea, Stone, and Distance</a>
+        <a href="#flowers" data-chapter-link="flowers">Flowers Keep the Reflection</a>
       </nav>
 
       <div id="gallery" aria-live="polite">
@@ -68,14 +80,14 @@
           <span></span>
           <span></span>
           <span></span>
-          <p>Preparing the photographs</p>
+          <p data-i18n="loading">Preparing the photographs</p>
         </div>
       </div>
     </main>
 
     <footer>
-      <p>Serena</p>
-      <p>A private collection, kept in light.</p>
+      <p>tingting</p>
+      <p data-i18n="footer">A private collection, kept in light.</p>
     </footer>
 
     <dialog class="lightbox" id="lightbox" aria-label="Full screen photograph">
@@ -88,15 +100,30 @@
         </figcaption>
       </figure>
       <div class="lightbox-actions">
-        <button type="button" id="previousButton">Previous</button>
-        <button type="button" id="nextButton">Next</button>
-        <button type="button" id="closeButton">Close</button>
+        <button type="button" id="previousButton" data-i18n="previous">Previous</button>
+        <button type="button" id="nextButton" data-i18n="next">Next</button>
+        <button type="button" id="closeButton" data-i18n="close">Close</button>
       </div>
     </dialog>
 
+    <button class="music-control" id="musicControl" type="button" aria-pressed="false">
+      <span class="equalizer" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span id="musicLabel">Play music</span>
+    </button>
+    <audio
+      id="backgroundMusic"
+      src="assets/audio/lakeside-moonlight.ogg"
+      preload="metadata"
+      loop
+    ></audio>
+
     <noscript>
       <p class="noscript-note">
-        JavaScript is required for the gallery and full screen viewer.
+        JavaScript is required for the gallery. 此画廊需要启用 JavaScript。
       </p>
     </noscript>
   </body>

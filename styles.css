@@ -107,7 +107,7 @@ button {
 }
 
 .intro-image {
-  background: url("assets/thumbs/serena-18.webp") center 43% / cover no-repeat;
+  background: url("assets/thumbs/tingting-18.webp") center 43% / cover no-repeat;
   filter: blur(8px) saturate(0.66) contrast(0.86);
   transform: scale(1.08);
   animation: intro-breathe 16s ease-in-out infinite alternate;
@@ -227,6 +227,12 @@ button {
   gap: 28px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .site-header nav a {
   color: var(--muted);
   font-size: 0.7rem;
@@ -237,6 +243,35 @@ button {
 
 .site-header nav a:hover {
   color: var(--ink);
+}
+
+.language-toggle {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgb(63 58 53 / 0.25);
+  border-radius: 50%;
+  background: rgb(241 238 232 / 0.52);
+  cursor: pointer;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.65s,
+    border-color 0.65s;
+}
+
+.language-toggle:hover {
+  transform: rotate(8deg) scale(1.04);
+  border-color: var(--accent);
+  background: rgb(246 242 236 / 0.86);
+}
+
+.language-toggle:active {
+  transform: rotate(0) scale(0.97);
 }
 
 main {
@@ -610,6 +645,75 @@ footer p:first-child {
   transform: translateY(0) scale(0.98);
 }
 
+.music-control {
+  position: fixed;
+  z-index: 22;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  min-width: 142px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 10px 16px;
+  border: 1px solid rgb(63 58 53 / 0.2);
+  border-radius: var(--radius);
+  background: rgb(241 238 232 / 0.78);
+  backdrop-filter: blur(16px) saturate(110%);
+  box-shadow: 0 12px 34px rgb(95 79 65 / 0.1);
+  cursor: pointer;
+  font-size: 0.67rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    opacity 0.8s,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.6s;
+}
+
+body.is-intro .music-control {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+.music-control:hover {
+  transform: translateY(-3px);
+  background: rgb(246 242 236 / 0.94);
+}
+
+.music-control:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.equalizer {
+  display: flex;
+  height: 13px;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.equalizer span {
+  width: 2px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform-origin: bottom;
+}
+
+.music-control.is-playing .equalizer span {
+  animation: equalizer-pulse 1.45s ease-in-out infinite alternate;
+}
+
+.music-control.is-playing .equalizer span:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+.music-control.is-playing .equalizer span:nth-child(3) {
+  animation-delay: -0.9s;
+}
+
 .noscript-note {
   position: fixed;
   right: 16px;
@@ -647,6 +751,15 @@ footer p:first-child {
   }
   to {
     background-position: -120% 0;
+  }
+}
+
+@keyframes equalizer-pulse {
+  from {
+    transform: scaleY(0.45);
+  }
+  to {
+    transform: scaleY(2.8);
   }
 }
 
@@ -720,8 +833,18 @@ footer p:first-child {
     gap: 16px;
   }
 
+  .header-actions {
+    gap: 12px;
+  }
+
   .site-header nav a {
     font-size: 0.62rem;
+  }
+
+  .language-toggle {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
   }
 
   .opening {
@@ -817,6 +940,12 @@ footer p:first-child {
   .lightbox-actions button {
     min-width: 0;
     flex: 1;
+  }
+
+  .music-control {
+    right: 16px;
+    bottom: 16px;
+    min-width: 128px;
   }
 }
 
