@@ -376,20 +376,18 @@ main {
 }
 
 .masonry {
-  column-count: 3;
-  column-gap: clamp(18px, 2.3vw, 34px);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(28px, 3.2vw, 52px) clamp(20px, 2.6vw, 42px);
+  align-items: start;
+  grid-auto-flow: dense;
 }
 
 .photo {
-  display: inline-block;
+  display: block;
   width: 100%;
-  margin: 0 0 clamp(18px, 2.3vw, 34px);
-  break-inside: avoid;
-  vertical-align: top;
-}
-
-.photo:nth-child(3n + 2) {
-  margin-top: clamp(18px, 4vw, 66px);
+  min-width: 0;
+  margin: 0;
 }
 
 .photo-button {
@@ -410,6 +408,14 @@ main {
 .photo-button:hover {
   transform: translateY(-7px);
   box-shadow: var(--shadow);
+}
+
+.photo:nth-child(even) .photo-button:hover {
+  transform: translateY(-7px) rotate(0.28deg);
+}
+
+.photo:nth-child(odd) .photo-button:hover {
+  transform: translateY(-7px) rotate(-0.2deg);
 }
 
 .photo img {
@@ -442,6 +448,137 @@ main {
 
 .photo.has-error .photo-error {
   display: grid;
+}
+
+@media (min-width: 901px) {
+  .chapter--aisles .chapter-header {
+    margin-left: 7%;
+  }
+
+  .masonry--aisles .photo:nth-child(1) {
+    grid-column: 1 / span 6;
+  }
+
+  .masonry--aisles .photo:nth-child(2) {
+    grid-column: 8 / span 5;
+    margin-top: clamp(54px, 7vw, 104px);
+  }
+
+  .masonry--aisles .photo:nth-child(3) {
+    grid-column: 2 / span 4;
+  }
+
+  .masonry--aisles .photo:nth-child(4) {
+    grid-column: 6 / span 4;
+    margin-top: clamp(16px, 3vw, 44px);
+  }
+
+  .masonry--aisles .photo:nth-child(5) {
+    grid-column: 10 / span 3;
+    margin-top: clamp(72px, 9vw, 132px);
+  }
+
+  .chapter--blue-light .chapter-header {
+    max-width: 620px;
+    margin-right: 8%;
+  }
+
+  .masonry--blue-light .photo:nth-child(1) {
+    grid-column: 1 / span 5;
+  }
+
+  .masonry--blue-light .photo:nth-child(2) {
+    grid-column: 7 / span 6;
+    margin-top: clamp(64px, 8vw, 116px);
+  }
+
+  .masonry--blue-light .photo:nth-child(3) {
+    grid-column: 2 / span 7;
+    margin-top: clamp(8px, 2vw, 28px);
+  }
+
+  .masonry--blue-light .photo:nth-child(4) {
+    grid-column: 10 / span 3;
+    margin-top: clamp(88px, 11vw, 158px);
+  }
+
+  .chapter--green .chapter-header {
+    max-width: 680px;
+    margin-left: 12%;
+  }
+
+  .masonry--green .photo:nth-child(1) {
+    grid-column: 1 / span 7;
+  }
+
+  .masonry--green .photo:nth-child(2) {
+    grid-column: 9 / span 4;
+    margin-top: clamp(92px, 12vw, 170px);
+  }
+
+  .masonry--green .photo:nth-child(3) {
+    grid-column: 2 / span 4;
+    margin-top: clamp(18px, 3vw, 48px);
+  }
+
+  .masonry--green .photo:nth-child(4) {
+    grid-column: 7 / span 6;
+  }
+
+  .chapter--sea-stone .chapter-header {
+    max-width: 840px;
+    margin-left: 4%;
+  }
+
+  .masonry--sea-stone .photo:nth-child(1) {
+    grid-column: 1 / -1;
+    width: 88%;
+    margin-left: auto;
+  }
+
+  .masonry--sea-stone .photo:nth-child(2) {
+    grid-column: 1 / span 4;
+    margin-top: clamp(70px, 9vw, 132px);
+  }
+
+  .masonry--sea-stone .photo:nth-child(3) {
+    grid-column: 5 / span 5;
+  }
+
+  .masonry--sea-stone .photo:nth-child(4) {
+    grid-column: 10 / span 3;
+    margin-top: clamp(110px, 14vw, 196px);
+  }
+
+  .chapter--flowers .chapter-header {
+    max-width: 760px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .chapter--flowers .chapter-header p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .masonry--flowers {
+    align-items: center;
+  }
+
+  .masonry--flowers .photo:nth-child(1) {
+    grid-column: 1 / span 4;
+    margin-top: clamp(88px, 11vw, 154px);
+  }
+
+  .masonry--flowers .photo:nth-child(2) {
+    grid-column: 5 / span 5;
+  }
+
+  .masonry--flowers .photo:nth-child(3) {
+    grid-column: 10 / span 3;
+    margin-top: clamp(42px, 6vw, 86px);
+  }
 }
 
 .reveal,
@@ -786,7 +923,22 @@ body.is-intro .music-control {
   }
 
   .masonry {
-    column-count: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 20px;
+  }
+
+  .masonry .photo {
+    grid-column: auto;
+  }
+
+  .masonry .photo:nth-child(even) {
+    margin-top: 44px;
+  }
+
+  .masonry--sea-stone .photo:first-child {
+    grid-column: 1 / -1;
+    width: 90%;
+    margin-left: auto;
   }
 
   .opening {
@@ -896,15 +1048,32 @@ body.is-intro .music-control {
   }
 
   .masonry {
-    column-count: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
   }
 
-  .photo:nth-child(3n + 2) {
-    margin-top: 0;
+  .masonry .photo,
+  .masonry .photo:nth-child(even),
+  .masonry--sea-stone .photo:first-child {
+    width: 100%;
+    margin: 0;
   }
 
-  .photo {
-    margin-bottom: 20px;
+  .masonry .photo:nth-child(3n + 2) {
+    width: 86%;
+    align-self: flex-end;
+    margin-top: 8px;
+  }
+
+  .masonry .photo:nth-child(3n) {
+    width: 91%;
+    align-self: flex-start;
+  }
+
+  .masonry--sea-stone .photo:first-child {
+    width: 100%;
+    align-self: stretch;
   }
 
   .gallery-loading {

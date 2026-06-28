@@ -391,7 +391,7 @@ function renderGallery() {
 
   chapters.forEach((chapter) => {
     const section = document.createElement("section");
-    section.className = "chapter";
+    section.className = `chapter chapter--${chapter.id}`;
     section.id = chapter.id;
 
     const header = document.createElement("header");
@@ -407,7 +407,7 @@ function renderGallery() {
     header.append(title, description);
 
     const masonry = document.createElement("div");
-    masonry.className = "masonry";
+    masonry.className = `masonry masonry--${chapter.id}`;
     photographs
       .filter((photo) => photo.chapter === chapter.id)
       .forEach((photo) => masonry.append(createPhoto(photo)));
